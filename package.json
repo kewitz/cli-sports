@@ -2,7 +2,7 @@
   "author": "Leonardo Kewitz (https://github.com/kewitz)",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "cli-espn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Guia de programação CLI da ESPN Brasil",
   "repository": "github:kewitz/cli-espn",
   "main": "index.js",
