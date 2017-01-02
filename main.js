@@ -6,10 +6,12 @@ const { espn, sportv } = require('./networks')
 const printNetwork = (network) => {
   const channels = groupBy('channel')(network)
   const printChannel = (key) => {
+    /* eslint-disable no-console */
     const programs = channels[key]
     console.log(`${key}`)
     forEach(p => console.log(`\t${p.start} ${p.name}`))(programs)
   }
+  // Print Programs grouped by Channel
   mapKeys(printChannel)(channels)
 }
 
