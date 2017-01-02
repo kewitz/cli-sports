@@ -1,16 +1,16 @@
 {
   "author": "Leonardo Kewitz (https://github.com/kewitz)",
   "license": "SEE LICENSE IN LICENSE.md",
-  "name": "cli-espn",
+  "name": "cli-sports",
   "version": "1.0.2",
-  "description": "Guia de programação CLI da ESPN Brasil",
-  "repository": "github:kewitz/cli-espn",
+  "description": "Guia de programação de esportes por linha de comando.",
+  "repository": "github:kewitz/cli-sports",
   "main": "index.js",
   "scripts": {
     "start": "node main.js"
   },
   "bin": {
-    "espn": "main.js"
+    "sports": "main.js"
   },
   "dependencies": {
     "jsdom": "^9.8.3",

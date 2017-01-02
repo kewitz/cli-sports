@@ -1,14 +1,14 @@
-# cli-espn
-Guia de programação CLI da ESPN Brasil.
+# cli-sports
+Guia de programação de esportes por linha de comando.
 
 ### Instalação
 ```
-  npm i --global cli-espn
+  npm i --global cli-sports
 ```
 
 ### Uso
 ```
-leo@sputnik ~ $ espn
+leo@sputnik ~ $ sports
   ESPN Brasil
   14/12/2016 00:00 Bola da Vez: Silvio Luiz
   14/12/2016 01:30 SportsCenter: 3ª Edição
