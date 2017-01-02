@@ -33,6 +33,7 @@ const parser = (document) => {
   return flatMap(parseChannel)(channels)
 }
 
-const sportv = Network('SporTV', 'http://sportv.globo.com/site/programacao/', parser)
+const name = 'SporTV'
+const url = 'http://sportv.globo.com/site/programacao/'
 
-module.exports = sportv
+module.exports = Network({ name, url, parser })

@@ -19,6 +19,7 @@ const parser = (document) => {
   return flatMap(parseChannel)(channels)
 }
 
-const espn = Network('ESPN', 'http://espn.uol.com.br/programacao', parser)
+const name = 'EPSN'
+const url = 'http://espn.uol.com.br/programacao'
 
-module.exports = espn
+module.exports = Network({ name, url, parser })
