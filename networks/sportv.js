@@ -1,6 +1,7 @@
 const moment = require('moment')
 const {
   filter,
+  findLast,
   flatMap,
   flow,
   get,
@@ -12,16 +13,21 @@ const {
 
 const Network = require('../lib/Network')
 
+const markLive = programs => {
+  const liveProgram = findLast(program => program.start < moment())(programs)
+  liveProgram.live = true
+  return programs
+}
 const combineName = flow(join(' '), split(' '), uniq, join(' '))
 
-const parser = (document) => {
+const parser = document => {
   const channels = [
     { selector: '.ge-programacao-canal[data-canal-sigla=spo] li', channel: 'SporTV' },
     { selector: '.ge-programacao-canal[data-canal-sigla=spo2] li', channel: 'SporTV2' },
     { selector: '.ge-programacao-canal[data-canal-sigla=spo3] li', channel: 'SporTV3' },
   ]
   const parseChannel = ({ channel, selector }) => {
-    const parseProgram = (program) => {
+    const parseProgram = program => {
       const name = get('textContent')(program.querySelector('span.ge-programacao-edicao-nome'))
       const desc = get('textContent')(program.querySelector('span.ge-programacao-edicao-descricao'))
       const live = get('textContent')(program.querySelector('span.ge-programacao-edicao-aovivo'))
@@ -30,8 +36,8 @@ const parser = (document) => {
       const fullName = combineName([desc, name, live])
       return { channel, name: fullName, start }
     }
-    const programs = document.querySelectorAll(selector)
-    return flow(map(parseProgram), filter('start'))(programs)
+    const rawprograms = document.querySelectorAll(selector)
+    return flow(map(parseProgram), filter('start'), markLive)(rawprograms)
   }
   return flatMap(parseChannel)(channels)
 }

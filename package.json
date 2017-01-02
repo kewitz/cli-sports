@@ -2,7 +2,7 @@
   "author": "Leonardo Kewitz (https://github.com/kewitz)",
   "license": "SEE LICENSE IN LICENSE.md",
   "name": "cli-sports",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Guia de programação de esportes por linha de comando.",
   "repository": "github:kewitz/cli-sports",
   "main": "index.js",
@@ -13,6 +13,7 @@
     "sports": "main.js"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
     "jsdom": "^9.8.3",
     "lodash": "^4.17.2",
     "moment": "^2.17.1"
