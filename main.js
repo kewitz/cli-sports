@@ -9,7 +9,7 @@ const printNetwork = (network) => {
     /* eslint-disable no-console */
     const programs = channels[key]
     console.log(`${key}`)
-    forEach(p => console.log(`\t${p.start} ${p.name}`))(programs)
+    forEach(p => console.log(`\t${p.start.format('HH:mm')} ${p.name}`))(programs)
   }
   // Print Programs grouped by Channel
   mapKeys(printChannel)(channels)

@@ -1,4 +1,6 @@
+const moment = require('moment')
 const { flatMap, get, map } = require('lodash/fp')
+
 const Network = require('../lib/Network')
 
 const parser = (document) => {
@@ -10,7 +12,8 @@ const parser = (document) => {
   const parseChannel = ({ channel, selector }) => {
     const parseProgram = (program) => {
       const name = get('textContent')(program.querySelector('span._summary'))
-      const start = get('textContent')(program.querySelector('span._start'))
+      const startString = get('textContent')(program.querySelector('span._start'))
+      const start = moment(startString, 'DD/MM/YYYY HH:mm')
       return { channel, name, start }
     }
     const programs = document.querySelectorAll(selector)

@@ -1,3 +1,4 @@
+const moment = require('moment')
 const {
   filter,
   flatMap,
@@ -8,6 +9,7 @@ const {
   split,
   uniq,
 } = require('lodash/fp')
+
 const Network = require('../lib/Network')
 
 const combineName = flow(join(' '), split(' '), uniq, join(' '))
@@ -23,7 +25,8 @@ const parser = (document) => {
       const name = get('textContent')(program.querySelector('span.ge-programacao-edicao-nome'))
       const desc = get('textContent')(program.querySelector('span.ge-programacao-edicao-descricao'))
       const live = get('textContent')(program.querySelector('span.ge-programacao-edicao-aovivo'))
-      const start = get('textContent')(program.querySelector('span.ge-programacao-edicao-horario'))
+      const startString = get('textContent')(program.querySelector('span.ge-programacao-edicao-horario'))
+      const start = moment(startString, 'HH:mm')
       const fullName = combineName([desc, name, live])
       return { channel, name: fullName, start }
     }
